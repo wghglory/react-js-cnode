@@ -9,7 +9,8 @@ const App = (props) => {
     <div className='App'>
       <Switch location={location}>
         {routes.map((item, index) => {
-          return <Route path={item.path} exact={item.exact} render={item.render} key={index} />;
+          // return <Route path={item.path} exact={item.exact} render={item.render} key={index} />;
+          return <Route path={item.path} exact={item.exact} render={(props) => item.render(props)} key={index} />;
         })}
       </Switch>
     </div>

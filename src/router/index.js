@@ -5,8 +5,14 @@ import Loading from '../components/Loading';
 import HomePage from '../pages/Home';
 
 const NotFoundPage = lazy(() => import('../pages/404'));
+const LoginPage = lazy(() => import('../pages/Login'));
 const AboutPage = lazy(() => import('../pages/About'));
+const APIPage = lazy(() => import('../pages/API'));
 const TopicPage = lazy(() => import('../pages/Topic'));
+const UserPage = lazy(() => import('../pages/User'));
+const GetStartPage = lazy(() => import('../pages/GetStart'));
+
+const types = ['all', 'good', 'share', 'ask', 'job', 'dev'];
 
 const routes = [
   {
@@ -17,12 +23,56 @@ const routes = [
     },
   },
   {
+    path: '/login',
+    exact: true,
+    render(props) {
+      return (
+        <Suspense fallback={<Loading />}>
+          <LoginPage {...props} />
+        </Suspense>
+      );
+    },
+  },
+  {
     path: '/topics/:id',
     exact: true,
     render(props) {
       return (
         <Suspense fallback={<Loading />}>
           <TopicPage {...props} />
+        </Suspense>
+      );
+    },
+  },
+  {
+    path: '/users/:username',
+    exact: true,
+    render(props) {
+      return (
+        <Suspense fallback={<Loading />}>
+          <UserPage {...props} />
+        </Suspense>
+      );
+    },
+  },
+  {
+    path: '/getStart',
+    exact: true,
+    render(props) {
+      return (
+        <Suspense fallback={<Loading />}>
+          <GetStartPage {...props} />
+        </Suspense>
+      );
+    },
+  },
+  {
+    path: '/api',
+    exact: true,
+    render(props) {
+      return (
+        <Suspense fallback={<Loading />}>
+          <APIPage {...props} />
         </Suspense>
       );
     },
@@ -97,4 +147,4 @@ const homeSubNavs = [
   },
 ];
 
-export { routes, navs, homeSubNavs };
+export { routes, navs, homeSubNavs, types };
