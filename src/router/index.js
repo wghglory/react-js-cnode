@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react';
+import qs from 'qs';
 
 import Loading from '../components/Loading';
 
@@ -12,14 +13,25 @@ const TopicPage = lazy(() => import('../pages/Topic'));
 const UserPage = lazy(() => import('../pages/User'));
 const GetStartPage = lazy(() => import('../pages/GetStart'));
 
-const types = ['all', 'good', 'share', 'ask', 'job', 'dev'];
+const tabValues = ['all', 'good', 'share', 'ask', 'job', 'dev'];
 
 const routes = [
   {
     path: '/',
     exact: true,
     render(props) {
-      return <HomePage {...props} />;
+      const { location } = props;
+      const { search } = location;
+      const { tab, page } = qs.parse(search.substr(1));
+
+      if ((tab === undefined && page === undefined) || (tabValues.includes(tab) && (page === undefined || page > 0))) {
+        return <HomePage {...props} />;
+      }
+      return (
+        <Suspense fallback={<Loading />}>
+          <NotFoundPage {...props} />
+        </Suspense>
+      );
     },
   },
   {
@@ -147,4 +159,4 @@ const homeSubNavs = [
   },
 ];
 
-export { routes, navs, homeSubNavs, types };
+export { routes, navs, homeSubNavs, tabValues };
