@@ -4,7 +4,7 @@ import Loading from '../components/Loading';
 
 import HomePage from '../pages/Home';
 
-const NotFoundPage = lazy(() => import('../pages/404'));
+const NotFoundPage = lazy(() => import('../pages/NotFound'));
 const LoginPage = lazy(() => import('../pages/Login'));
 const AboutPage = lazy(() => import('../pages/About'));
 const APIPage = lazy(() => import('../pages/API'));

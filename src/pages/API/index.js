@@ -1,5 +1,7 @@
+import BasicLayout from 'layout/BasicLayout';
+
 function APIPage() {
   return <div>API page</div>;
 }
 
-export default APIPage;
+export default BasicLayout(APIPage);
