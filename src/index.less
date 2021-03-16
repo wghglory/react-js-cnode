@@ -11,3 +11,44 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+/* <576px */
+.wrap {
+  margin: 0 6px;
+}
+
+/* >=576px */
+@media all and (min-width: 576px) {
+  .wrap {
+    margin: 0 10px;
+  }
+}
+
+/* >=768px */
+@media all and (min-width: 768px) {
+  .wrap {
+    margin: 0 16px;
+  }
+}
+
+/* >=992px */
+@media all and (min-width: 992px) {
+  .wrap {
+    margin: 0 20px;
+  }
+}
+
+/* >=1200px */
+@media all and (min-width: 1200px) {
+  .wrap {
+    margin: 0 auto;
+    width: 980px;
+  }
+}
+
+/* >=1600px */
+@media all and (min-width: 1600px) {
+  .wrap {
+    width: 1200px;
+  }
+}
