@@ -21,16 +21,23 @@ function useGetTopics() {
 function useGetTopic() {
   const dispatch = useDispatch();
 
-  return (id) => {
+  return async (id) => {
     dispatch({
       type: 'TOPIC_LOAD',
     });
-    http.get(`/topic/${id}`).then((res) => {
+
+    try {
+      const res = await http.get(`/topic/${id}tomakeerroronpurpose`);
       dispatch({
         type: 'TOPIC_GET',
         data: res.data.data,
       });
-    });
+    } catch (err) {
+      dispatch({
+        type: 'TOPIC_ERROR',
+        errorMsg: err.response.data.error_msg,
+      });
+    }
   };
 }
 

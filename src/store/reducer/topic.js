@@ -2,6 +2,7 @@ function topic(
   topic = {
     loading: true,
     data: {},
+    errorMsg: '',
   },
   action,
 ) {
@@ -10,11 +11,19 @@ function topic(
       return {
         loading: true,
         data: {},
+        errorMsg: '',
       };
     case 'TOPIC_GET': // 获取到数据
       return {
         loading: false,
         data: action.data,
+        errorMsg: '',
+      };
+    case 'TOPIC_ERROR': // ERROR
+      return {
+        loading: false,
+        data: {},
+        errorMsg: action.errorMsg,
       };
     default:
       return {
