@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import TopicTag from './TopicTag';
 
-// dayjs
+// dayjs: may add this in global
 import dayjs from 'dayjs';
 let relativeTime = require('dayjs/plugin/relativeTime');
 dayjs.extend(relativeTime);
