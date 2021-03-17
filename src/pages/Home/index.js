@@ -22,11 +22,11 @@ function HomePage() {
   }, [page, tab]);
 
   return (
-    <>
+    <div className='spacing'>
       <SubNav></SubNav>
       <TopicList data={data} loading={loading}></TopicList>
       {loading ? '' : <HomePagination />}
-    </>
+    </div>
   );
 }
 

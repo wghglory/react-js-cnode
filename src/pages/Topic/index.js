@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
-import { Card, Alert } from 'antd';
+
+import { Alert } from 'antd';
 
 // import { useGetTopic } from '../../store/action/topic';  // since jsconfig.json is configured, we can use below absolute path
 import { useGetTopic } from 'store/action/topic';
+
+import Detail from './components/Detail';
 
 function TopicPage() {
   const { loading, data, errorMsg } = useSelector((state) => state.topic);
@@ -20,29 +23,27 @@ function TopicPage() {
   }, [id]);
 
   return errorMsg ? (
-    <Alert
-      showIcon
-      closable
-      message={'请求出错'}
-      type='error'
-      description={
-        <>
-          <p>{errorMsg}</p>
-          <p>点击关闭按钮返回上一步</p>
-        </>
-      }
-      afterClose={() => {
-        history.goBack();
-      }}
-    />
-  ) : (
-    <Card title={data.title} loading={loading}>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: data.content,
+    <div className='spacing'>
+      <Alert
+        showIcon
+        closable
+        message={'请求出错'}
+        type='error'
+        description={
+          <>
+            <p>{errorMsg}</p>
+            <p>点击关闭按钮返回上一步</p>
+          </>
+        }
+        afterClose={() => {
+          history.goBack();
         }}
-      ></div>
-    </Card>
+      />
+    </div>
+  ) : (
+    <div className='spacing'>
+      <Detail loading={loading} data={data}></Detail>
+    </div>
   );
 }
 

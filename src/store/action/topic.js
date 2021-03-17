@@ -27,7 +27,7 @@ function useGetTopic() {
     });
 
     try {
-      const res = await http.get(`/topic/${id}tomakeerroronpurpose`);
+      const res = await http.get(`/topic/${id}`);
       dispatch({
         type: 'TOPIC_GET',
         data: res.data.data,
