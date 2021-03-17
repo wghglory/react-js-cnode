@@ -1,10 +1,9 @@
 import dayjs from 'dayjs';
-let relativeTime = require('dayjs/plugin/relativeTime');
+import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(relativeTime);
 require('dayjs/locale/zh-cn');
 dayjs.locale('zh-cn');
 
 export default function FromNow(props) {
-  let { date } = props;
-  return dayjs(date).fromNow();
+  return <>{dayjs(props.date).fromNow()}</>;
 }
