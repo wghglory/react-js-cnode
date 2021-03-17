@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 import qs from 'qs';
 
-import { useGetTopics } from 'store/action/topic';
+import { useGetTopics } from 'store/action';
 
 import SubNav from './components/SubNav';
 import HomePagination from './components/HomePagination';

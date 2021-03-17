@@ -4,8 +4,8 @@ import { useParams, useHistory } from 'react-router-dom';
 
 import { Alert } from 'antd';
 
-// import { useGetTopic } from '../../store/action/topic';  // since jsconfig.json is configured, we can use below absolute path
-import { useGetTopic } from 'store/action/topic';
+// import { useGetTopic } from '../../store/action';  // since jsconfig.json is configured, we can use below absolute path
+import { useGetTopic } from 'store/action';
 
 import Detail from './components/Detail';
 import Replies from './components/Replies';

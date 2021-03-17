@@ -1,4 +1,4 @@
-function topics(
+export function topics(
   topics = {
     loading: true,
     data: [],
@@ -23,5 +23,3 @@ function topics(
       };
   }
 }
-
-export default topics;
