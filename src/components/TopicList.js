@@ -4,8 +4,18 @@ import { Link } from 'react-router-dom';
 
 import TopicTag from './TopicTag';
 
+// dayjs
+import dayjs from 'dayjs';
+let relativeTime = require('dayjs/plugin/relativeTime');
+dayjs.extend(relativeTime);
+require('dayjs/locale/zh-cn');
+dayjs.locale('zh-cn');
+
 export default function TopicList(props) {
   let { loading, data } = props;
+
+  console.log(dayjs().startOf('day'));
+
   return (
     <List
       className='topicList'
@@ -26,7 +36,9 @@ export default function TopicList(props) {
                 {title}
               </Link>
             </Col>
-            <Col xs={0} md={4}></Col>
+            <Col xs={0} md={4} style={{ textAlign: 'right' }}>
+              {dayjs(last_reply_at).fromNow()}
+            </Col>
           </List.Item>
         );
       }}
