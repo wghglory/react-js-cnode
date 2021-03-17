@@ -1,0 +1,4 @@
+/* need :global to make sure .subNav priority higher than antd */
+:global(.wrap) .subNav {
+  margin-top: 10px;
+}

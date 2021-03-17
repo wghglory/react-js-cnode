@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 
 import qs from 'qs';
 
+import style from './subNav.module.css';
+
 import { homeSubNavs, tabValues } from '../../../../router';
 
 function SubNav() {
@@ -11,7 +13,7 @@ function SubNav() {
   const activeIndex = tab === undefined ? 0 : tabValues.indexOf(tab);
 
   return (
-    <Menu mode={'horizontal'} selectedKeys={[activeIndex + '']} className='index_nav'>
+    <Menu mode={'horizontal'} selectedKeys={[activeIndex + '']} className={style.subNav}>
       {homeSubNavs.map((item, index) => {
         return (
           <Menu.Item key={index}>
