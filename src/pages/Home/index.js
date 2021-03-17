@@ -1,5 +1,3 @@
-import BasicLayout from 'layout/BasicLayout';
-
 import SubNav from './components/SubNav';
 import TopicList from './components/TopicList';
 
@@ -12,4 +10,4 @@ function HomePage() {
   );
 }
 
-export default BasicLayout(HomePage);
+export default HomePage;

@@ -19,6 +19,7 @@ const routes = [
   {
     path: '/',
     exact: true,
+    layout: true,
     render(props) {
       const { location } = props;
       const { search } = location;
@@ -48,6 +49,7 @@ const routes = [
   {
     path: '/topics/:id',
     exact: true,
+    layout: true,
     render(props) {
       return (
         <Suspense fallback={<Loading />}>
@@ -59,6 +61,7 @@ const routes = [
   {
     path: '/users/:username',
     exact: true,
+    layout: true,
     render(props) {
       return (
         <Suspense fallback={<Loading />}>
@@ -70,6 +73,7 @@ const routes = [
   {
     path: '/getStart',
     exact: true,
+    layout: true,
     render(props) {
       return (
         <Suspense fallback={<Loading />}>
@@ -81,6 +85,7 @@ const routes = [
   {
     path: '/api',
     exact: true,
+    layout: true,
     render(props) {
       return (
         <Suspense fallback={<Loading />}>
@@ -92,6 +97,7 @@ const routes = [
   {
     path: '/about',
     exact: true,
+    layout: true,
     render(props) {
       return (
         <Suspense fallback={<Loading />}>
@@ -102,6 +108,7 @@ const routes = [
   },
   {
     path: '',
+    layout: true,
     exact: false,
     render(props) {
       return (
