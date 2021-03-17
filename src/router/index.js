@@ -17,7 +17,7 @@ const tabValues = ['all', 'good', 'share', 'ask', 'job', 'dev'];
 
 const routes = [
   {
-    path: '/',
+    path: ['/', '/topics'],
     exact: true,
     layout: true,
     render(props) {
@@ -124,6 +124,7 @@ const navs = [
   {
     title: '首页',
     to: '/',
+    alias: '/topics',
   },
   {
     title: '新手入门',

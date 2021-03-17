@@ -9,7 +9,7 @@ function Header(props) {
   const { pathname } = useLocation();
 
   const activeIndex = navs.findIndex((item) => {
-    return pathname === item.to;
+    return pathname === item.to || pathname === item.alias;
   });
 
   return (
