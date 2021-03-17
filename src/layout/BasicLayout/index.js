@@ -6,7 +6,7 @@ import Footer from 'components/Footer';
 // HOC
 export default function BasicLayout({ comp }) {
   return (
-    <Layout>
+    <Layout className='layoutContainer'>
       <Header></Header>
       <Layout.Content>
         <div className='wrap'>{comp}</div>
