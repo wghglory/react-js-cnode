@@ -3,18 +3,10 @@ import { UserOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
 import TopicTag from './TopicTag';
-
-// dayjs: may add this in global
-import dayjs from 'dayjs';
-let relativeTime = require('dayjs/plugin/relativeTime');
-dayjs.extend(relativeTime);
-require('dayjs/locale/zh-cn');
-dayjs.locale('zh-cn');
+import FromNow from './FromNow';
 
 export default function TopicList(props) {
-  let { loading, data } = props;
-
-  console.log(dayjs().startOf('day'));
+  const { loading, data } = props;
 
   return (
     <List
@@ -37,7 +29,7 @@ export default function TopicList(props) {
               </Link>
             </Col>
             <Col xs={0} md={4} style={{ textAlign: 'right' }}>
-              {dayjs(last_reply_at).fromNow()}
+              <FromNow date={last_reply_at} />
             </Col>
           </List.Item>
         );
