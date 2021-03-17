@@ -8,14 +8,13 @@ import { Alert } from 'antd';
 import { useGetTopic } from 'store/action/topic';
 
 import Detail from './components/Detail';
+import Replies from './components/Replies';
 
 function TopicPage() {
   const { loading, data, errorMsg } = useSelector((state) => state.topic);
   const getTopic = useGetTopic();
   const { id } = useParams();
   const history = useHistory();
-
-  console.log(loading, data);
 
   useEffect(() => {
     getTopic(id);
@@ -43,6 +42,7 @@ function TopicPage() {
   ) : (
     <div className='spacing'>
       <Detail loading={loading} data={data}></Detail>
+      <Replies loading={loading} data={data.replies} />
     </div>
   );
 }
